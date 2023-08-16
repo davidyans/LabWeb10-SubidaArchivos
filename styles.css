@@ -1,45 +1,27 @@
 body {
-
     font-family: Arial, sans-serif;
-
     margin: 0;
-
     padding: 20px;
+    background-color: #111; /* Color de fondo oscuro */
+    color: #00ff00; /* Color de texto verde Matrix */
+}
 
-    background-color: #f0f0f0;
-
-  }
-
-  
-
-  #fileInput {
-
+#fileInput {
     margin-bottom: 10px;
+}
 
-  }
+#fileInfo {
+    background-color: #222; /* Color de fondo oscuro más oscuro */
+    border: 1px solid #444; /* Borde más oscuro */
+    padding: 20px; /* Aumento del espacio interno */
+    border-radius: 10px; /* Bordes más redondeados */
+    color: #00ff00; /* Color de texto verde Matrix */
+    max-width: 400px; /* Ancho máximo */
+    margin: 0 auto; /* Centrado horizontal */
+}
 
-  
-
-  #fileInfo {
-
-    background-color: #fff;
-
-    border: 1px solid #ddd;
-
-    padding: 10px;
-
-    border-radius: 5px;
-
-  }
-
-  
-
-  #preview {
-
+#preview {
     max-width: 100%;
-
     display: none;
-
-    margin-top: 10px;
-
-  }
+    margin-top: 20px; /* Aumento del margen superior */
+}
