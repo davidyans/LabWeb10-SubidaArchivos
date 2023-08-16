@@ -55,3 +55,4 @@ fileInput.addEventListener('change', function(event) {
     console.error('Error al subir el archivo:', error);
   });
 });
+

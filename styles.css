@@ -1,27 +1,27 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     margin: 0;
-    padding: 20px;
-    background-color: #111; /* Color de fondo oscuro */
-    color: #00ff00; /* Color de texto verde Matrix */
+    padding: 15px;
+    background-color: #222; /* Color de fondo oscuro */
+    color: #4caf50; /* Color de texto verde */
 }
 
 #fileInput {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 #fileInfo {
-    background-color: #222; /* Color de fondo oscuro más oscuro */
-    border: 1px solid #444; /* Borde más oscuro */
-    padding: 20px; /* Aumento del espacio interno */
-    border-radius: 10px; /* Bordes más redondeados */
-    color: #00ff00; /* Color de texto verde Matrix */
-    max-width: 400px; /* Ancho máximo */
+    background-color: #333; /* Color de fondo oscuro más oscuro */
+    border: 1px solid #555; /* Borde más oscuro */
+    padding: 15px; /* Aumento del espacio interno */
+    border-radius: 8px; /* Bordes más redondeados */
+    color: #ff5722; /* Color de texto naranja */
+    max-width: 480px; /* Ancho máximo */
     margin: 0 auto; /* Centrado horizontal */
 }
 
 #preview {
     max-width: 100%;
     display: none;
-    margin-top: 20px; /* Aumento del margen superior */
+    margin-top: 15px; /* Aumento del margen superior */
 }
