@@ -1,9 +1,10 @@
 const fileInput = document.getElementById('fileInput');
 const fileInfo = document.getElementById('fileInfo');
 const preview = document.getElementById('preview');
+const progressBar = document.getElementById('progressBar');
 
-const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
+const allowedTypes = ['image/jpeg', 'image/png', 'image/gif','application/pdf'];
+const maxFileSize = 300 * 1024 * 1024; // 5 MB in bytes
 
 fileInput.addEventListener('change', function(event) {
   const selectedFile = event.target.files[0];
@@ -11,18 +12,21 @@ fileInput.addEventListener('change', function(event) {
   if (!selectedFile) {
     fileInfo.innerHTML = 'Ningún archivo seleccionado.';
     preview.style.display = 'none';
+    progressBar.style.display = 'none';
     return;
   }
 
   if (!allowedTypes.includes(selectedFile.type)) {
     fileInfo.innerHTML = 'Tipo de archivo no admitido. Por favor, elige un archivo .jpg, .png o .gif.';
     preview.style.display = 'none';
+    progressBar.style.display = 'none';
     return;
   }
 
   if (selectedFile.size > maxFileSize) {
     fileInfo.innerHTML = 'El tamaño del archivo excede el límite de 5 MB.';
     preview.style.display = 'none';
+    progressBar.style.display = 'none';
     return;
   }
 
@@ -33,11 +37,21 @@ fileInput.addEventListener('change', function(event) {
   `;
 
   preview.style.display = 'block';
+  progressBar.style.display = 'block';
 
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    preview.src = e.target.result;
-  };
+  const formData = new FormData();
+  formData.append('file', selectedFile);
 
-  reader.readAsDataURL(selectedFile);
+  axios.post('http://localhost:3000/upload', formData, {
+    onUploadProgress: function(progressEvent) {
+      const progressPercentage = Math.round((progressEvent.loaded / progressEvent.total) * 100);
+      progressBar.value = progressPercentage;
+    }
+  })
+  .then(response => {
+    console.log('Archivo subido con éxito:', response.data);
+  })
+  .catch(error => {
+    console.error('Error al subir el archivo:', error);
+  });
 });
